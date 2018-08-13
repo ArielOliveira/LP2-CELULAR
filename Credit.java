@@ -6,16 +6,20 @@ public class Credit {
   }
 
   public Credit(int credits) {
-    if (credits > 0) {
+    if (credits >= 0) {
       this.credits = credits;  
     } else {
-      System.out.println("Valor de inicialização inválido!");
+      System.out.println("A classe não pode ser inicializada com valor negativo: " + credits);
       this.credits = 0;
     }
   }
 
   public void setCredits(int credits) {
-    this.credits = credits;
+    if (credits > 0) {
+      this.credits = credits;
+    } else {
+      System.out.println("Não é possível atribuir créditos com valor negativo: " + credits);
+    }
   } 
 
   public int getCredits() {
@@ -38,11 +42,6 @@ public class Credit {
     }
   }
 
-  public void creditCharge(int charge) {
-    if (charge > 0) {
-    }
-  } 
- 
   public static void main (String[] args) {
      Credit c = new Credit(-1); 
      System.out.println(c.getCredits());
